@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace iTunesHall_j.Repositories.Interfaces
 {
     internal interface ICustomerRepository
-    {
+    { 
         // 1
         public List<Customer> GetAllCustomers();
 
@@ -28,12 +28,13 @@ namespace iTunesHall_j.Repositories.Interfaces
         public void UpdateCustomer(Customer customer);
 
         // 7
-        public Dictionary<string, int> GetCustomerCountByCountry();
+        public IEnumerable<CustomerCountry> GetCustomersInCountryCount();
 
         // 8
-        public void CustomersBySpending();
+        public IEnumerable<CustomerSpender> CustomersBySpending();
 
         // 9
+        public IEnumerable<CustomerGenre> CustomersByGenre(int id);
 
     }
 }

@@ -11,16 +11,29 @@ namespace iTunesHall_j
         {
             ICustomerRepository repository = new CustomerRepository();
 
+            string input = Console.ReadLine();
+
             //1
-            SelectAll(repository);
+            Console.WriteLine("SELECT ALL: \n");
+            repository.GetAllCustomers().ToList().ForEach(c => Console.WriteLine(c));
+
             //2
+            Console.WriteLine("SELECT BY ID: \n");
             SelectById(repository, "1");
+
             //3
+            Console.WriteLine("SELECT BY PARTIAL NAME: \n");
             SelectByPartialName(repository, "Frank", "");
+
             //4
-            SelectRange(repository, 10, 20);
+            int limit = 10;
+            int offset = 20;
+            Console.WriteLine(@"SELECT IN RANGE (LIMIT:{limit} OFFSET:{offset}): \n");
+            SelectRange(repository, limit, offset);
+
             //5
-            Customer customer1 = new Customer {
+            Customer customer1 = new Customer
+            {
                 FirstName = "Michael",
                 LastName = "Neergaard",
                 Country = "Denmark",
@@ -29,6 +42,7 @@ namespace iTunesHall_j
                 Email = "illegal"
             };
             CreateCustomer(repository, customer1);
+
             //6
             Customer customer2 = new Customer
             {
@@ -41,18 +55,16 @@ namespace iTunesHall_j
                 Email = "illegal"
             };
             UpdateCustomer(repository, customer2);
+
             //7
-            GetCustomersByCountry(repository);
-        }
+            repository.GetCustomersInCountryCount().ToList().ForEach(c => Console.WriteLine(c));
 
-        static void GetCustomersByCountry(ICustomerRepository repository)
-        {
-            Dictionary<string, int> customerCountByCountry = repository.GetCustomerCountByCountry();
+            //8
+            repository.CustomersBySpending().ToList().ForEach(c => Console.WriteLine(c));
 
-            foreach (KeyValuePair<string, int> kvp in customerCountByCountry)
-            {
-                Console.WriteLine("{0} : {1}", kvp.Key, kvp.Value);
-            }
+            //9
+            repository.CustomersByGenre(1).ToList().ForEach(c => Console.WriteLine(c));
+
         }
 
         static void UpdateCustomer(ICustomerRepository repository, Customer customer)
@@ -102,7 +114,6 @@ namespace iTunesHall_j
                               " \nCOUNTRY: " + customer.Country + "          ZIP: " + customer.PostalCode +
                               " \nPHONE: " + customer.Phone + " E-MAIL: " + customer.Email + "\n");
         }
-
     }
 
     public static class ConnectionString

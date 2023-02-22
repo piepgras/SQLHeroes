@@ -1,4 +1,8 @@
-﻿namespace iTunesHall_j
+﻿using Microsoft.Data.SqlClient;
+using iTunesHall_j.Models;
+using iTunesHall_j.Repositories.Implementations;
+
+namespace iTunesHall_j
 {
     internal class Program
     {

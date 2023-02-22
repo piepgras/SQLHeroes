@@ -7,5 +7,4 @@ using System.Threading.Tasks;
 namespace CreateAndAccessDatabaseFjy.Models
 {
     public record struct CustomerSpender(int CustomerId, string FirstName, string LastName, decimal Spender);
-
 }

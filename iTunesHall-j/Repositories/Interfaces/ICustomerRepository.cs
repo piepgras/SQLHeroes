@@ -1,4 +1,5 @@
-﻿using iTunesHall_j.Models;
+﻿using CreateAndAccessDatabaseFjy.Models;
+using iTunesHall_j.Models;
 
 namespace iTunesHall_j.Repositories.Interfaces
 {

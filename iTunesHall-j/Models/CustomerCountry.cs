@@ -6,10 +6,5 @@ using System.Threading.Tasks;
 
 namespace CreateAndAccessDatabaseFjy.Models
 {
-    public record struct CustomerCountry(
-        string Country,
-        int numberOfCustomers
-        );
-    
-    
+    public record struct CustomerCountry(string Country, int numberOfCustomers);
 }

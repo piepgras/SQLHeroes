@@ -1,4 +1,5 @@
-﻿using iTunesHall_j.Exceptions;
+﻿using CreateAndAccessDatabaseFjy.Models;
+using iTunesHall_j.Exceptions;
 using iTunesHall_j.Models;
 using iTunesHall_j.Repositories.Interfaces;
 using Microsoft.Data.SqlClient;

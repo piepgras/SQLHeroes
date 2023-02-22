@@ -295,7 +295,7 @@ namespace iTunesHall_j.Repositories.Implementations
 
         #region Customer requirement 9
         /// <summary>
-        /// Retrieves a possible top 5 favorite genres for a Customer based on the
+        /// Retrieves favorite genres for a Customer based on the
         /// total amount of tracks bought of each individual genre.
         /// Uses several table JOINs and a GROUP BY clause to aggregate data.
         /// WITH TIES clause is used to include any additional rows that have the same count as the last row.
